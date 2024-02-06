@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "books_to_read.html",
+    "href": "books_to_read.html",
+    "title": "책 읽어야할 것들",
+    "section": "",
+    "text": "책 읽어야할 것들\n한국에서 통계물리 분과와 네트워크 분과가 대체적으로 같이 가다보니 인원이 많지 않은 것 같다.\n따라서 한국인이 쓴책은 인력에 따라 정확히 나뉘는 실정이다.\n\n복잡계 과학이야기 복잡계 과학이야기는 이재우 인하대학교 교수가 작성한 책으로\n네트워크 과학 정하웅 , 바르바시\n그래프 알고리즘 연구실에서는 안하는거 neo4js등의 그래프 데이터베이스와 그래프 데이터베이스의 특성에 대해서 어떻게 그래프 데이터를 구조화하여 넣을수 있을지 연구할 수 있다.\nGNN 가이드\n온톨로지 연구\n\n바르바시 의 네트워크\n버몬트 네트워크 센터 산타페 연구소\n강병남 - 원로 교수님인듯 하다 . 정하웅 - 바르시바와 함께 카이스트에서 이후 연구단을 이끌고 있는 것 같다 . 이미진 손승우 이덕희 윤진혁 이상훈 이은 조항현 김희태"
+  },
+  {
+    "objectID": "hello.html",
+    "href": "hello.html",
+    "title": "Quarto Basics",
+    "section": "",
+    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 4 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+  },
+  {
+    "objectID": "hello.html#polar-axis",
+    "href": "hello.html#polar-axis",
+    "title": "Quarto Basics",
+    "section": "",
+    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 4 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+  },
+  {
+    "objectID": "computations.html",
+    "href": "computations.html",
+    "title": "Quarto Computations",
+    "section": "",
+    "text": "Code\n\nimport numpy as np\na = np.arange(15).reshape(3, 5)\na\n\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14]])"
+  },
+  {
+    "objectID": "computations.html#sec-numpy",
+    "href": "computations.html#sec-numpy",
+    "title": "Quarto Computations",
+    "section": "",
+    "text": "Code\n\nimport numpy as np\na = np.arange(15).reshape(3, 5)\na\n\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14]])"
+  },
+  {
+    "objectID": "computations.html#matplotlib",
+    "href": "computations.html#matplotlib",
+    "title": "Quarto Computations",
+    "section": "2 Matplotlib",
+    "text": "2 Matplotlib\n\n\nCode\nimport matplotlib.pyplot as plt\n\nfig = plt.figure()\nx = np.arange(10)\ny = 2.5 * np.sin(x / 20 * np.pi)\nyerr = np.linspace(0.05, 0.2, 10)\n\nplt.errorbar(x, y + 3, yerr=yerr, label='both limits (default)')\nplt.errorbar(x, y + 2, yerr=yerr, uplims=True, label='uplims=True')\nplt.errorbar(x, y + 1, yerr=yerr, uplims=True, lolims=True,\n             label='uplims=True, lolims=True')\n\nupperlimits = [True, False] * 5\nlowerlimits = [False, True] * 5\nplt.errorbar(x, y, yerr=yerr, uplims=upperlimits, lolims=lowerlimits,\n             label='subsets of uplims and lolims')\n\nplt.legend(loc='lower right')\nplt.show(fig)\n\n\n\n\n\n\n\n\nFigure 1: Errorbar limit selection"
+  },
+  {
+    "objectID": "computations.html#plotly",
+    "href": "computations.html#plotly",
+    "title": "Quarto Computations",
+    "section": "3 Plotly",
+    "text": "3 Plotly\n\nCode\nimport plotly.express as px\nimport plotly.io as pio\ngapminder = px.data.gapminder()\ndef gapminder_plot(year):\n    gapminderYear = gapminder.query(\"year == \" + \n                                    str(year))\n    fig = px.scatter(gapminderYear, \n                     x=\"gdpPercap\", y=\"lifeExp\",\n                     size=\"pop\", size_max=60,\n                     hover_name=\"country\")\n    fig.show()\n    \ngapminder_plot(1957)\ngapminder_plot(2007)\n\n\n\n\n\n\n\n\n\n                                                \n\n\n(a) Gapminder: 1957\n\n\n\n\n\n\n\n\n                                                \n\n\n(b) Gapminder: 2007\n\n\n\n\n\n\n\nFigure 2: Life Expectancy and GDP\n\n\n\n\n\n\n\n\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n\n\n\n\n\n\nHow to use refbib is like this (Hu et al. 2020).\nand writing equations\n E = mc^{2}  \\tag{1}\nsee Equation 1 to understand how to use\nHere is a footnote reference,1 and another.2\n1 Here is the footnote.2 Here’s one with multiple blocks.\nSubsequent paragraphs are indented to show that they belong to the previous footnote.\n{ some.code }\nThe whole paragraph can be indented, or just the first line. In this way, multi-paragraph footnotes work like multi-paragraph list items.3 Inlines notes are easier to write, since you don’t have to pick an identifier and move down to type the note.Here is an inline note.3\nThis paragraph won’t be part of the note, because it isn’t indented.\n\n\nCode\na =1 \n\n\n\n\n\n\n\n\nImportant\n\n\n\nthis is a note type will be note, tip, warning, caution, important"
+  },
+  {
+    "objectID": "computations.html#references",
+    "href": "computations.html#references",
+    "title": "Quarto Computations",
+    "section": "4 References",
+    "text": "4 References\n\n\nHu, Ziniu, Yuxiao Dong, Kuansan Wang, Kai-Wei Chang, and Yizhou Sun. 2020. “Gpt-Gnn: Generative Pre-Training of Graph Neural Networks.” In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining, 1857–67."
+  }
+]
